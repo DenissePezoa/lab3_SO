@@ -1,0 +1,24 @@
+
+NOMBRE_EJECUTABLE = mapreduce
+
+# Esta es la target que se ejecuta por defecto si se escribe "make" en la consola
+all: release
+
+# Compilación principal del ejecutable
+release:
+	@echo 'Compilando target: $@'
+	
+	gcc MapReduce.c -o $(NOMBRE_EJECUTABLE) 
+	@echo ' '
+	@echo $@ compilado
+	@echo "Ejecute el programa haciendo: ./"$(NOMBRE_EJECUTABLE)""
+	@echo ' '
+	@echo "Sintaxis ejecución:"
+	@echo "./"$(NOMBRE_EJECUTABLE)" -i archivo_entrada -o archivo_salida -n numero_nodos -d opcion_debug"
+	@echo ' '
+
+# Other Targets
+clean:
+	#Borro el contenido del directorio de compilación
+	rm -rf *.o
+	-@echo ' ' 
